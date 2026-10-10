@@ -1,0 +1,4 @@
+/api/envoyer   /.netlify/functions/envoyer  200!
+/netlify/*     /404.html                    404!
+/netlify.toml  /404.html                    404!
+/README.md     /404.html                    404!

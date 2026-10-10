@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Calculatrice – Belloni &amp; Fils</title>
+<style>
+:root{--bg:#fafaf8;--fg:#161616;--mut:#8b8b86;--bd:#e4e3de;--key:#f0efeb}
+@media (prefers-color-scheme:dark){:root{--bg:#111;--fg:#ececea;--mut:#8f8f8a;--bd:#2c2c2a;--key:#1c1c1b}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+html,body{touch-action:manipulation}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif;padding:max(18px,env(safe-area-inset-top)) 18px 36px}
+main{max-width:400px;margin:0 auto}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:15px}
+.top a{color:var(--fg);text-decoration:none;padding:8px 0}
+.top span{color:var(--mut);letter-spacing:.14em;text-transform:uppercase;font-size:12px;font-weight:500}
+.rv{display:block;text-align:center;border:1px solid var(--fg);color:var(--fg);text-decoration:none;font-weight:500;font-size:16px;padding:14px;border-radius:12px;margin:0 0 10px}
+.rv:active{background:var(--key)}
+.screen{text-align:right;min-height:130px;display:flex;flex-direction:column;justify-content:flex-end;padding:8px 2px 14px;overflow:hidden;border-bottom:1px solid var(--bd);margin-bottom:14px}
+#ex{font-size:18px;color:var(--mut);min-height:24px;word-break:break-all;font-weight:300}
+#re{font-size:56px;font-weight:300;letter-spacing:-.02em;line-height:1.1;word-break:break-all}
+#tv{font-size:13px;color:var(--mut);min-height:18px;margin-top:4px}
+.tva{margin:0 0 14px}
+.tva b{display:block;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
+.g{display:grid;gap:8px}.t3{grid-template-columns:repeat(3,1fr);margin-bottom:8px}.t2{grid-template-columns:repeat(2,1fr)}
+button{font:400 16px -apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--fg);background:transparent;border:1px solid var(--bd);border-radius:12px;min-height:46px;cursor:pointer}
+button.on{border-color:var(--fg)}
+.pad{grid-template-columns:repeat(4,1fr);gap:8px}
+.pad button{min-height:64px;font-size:26px;font-weight:300;background:var(--key);border:0;border-radius:16px}
+.pad .o{color:var(--mut)}
+.pad .eq{background:var(--fg);color:var(--bg)}
+button:active{opacity:.55}
+.hist{margin-top:18px}.hist b{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.hist div{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--bd);font-size:16px;cursor:pointer;font-weight:300}
+.hist span:first-child{color:var(--mut)}
+</style></head><body><script>(function(){var H='7bbc641d269a9d10a999220d1dee363d4c2297638d2ad9bce1def756b5989152',S='bf|devis|2026|',K='bf_ok';
+function sha256(ascii){function rr(v,a){return(v>>>a)|(v<<(32-a))}var mp=Math.pow,mw=mp(2,32),L='length',i,j,res='',words=[],bl=ascii[L]*8,hash=sha256.h=sha256.h||[],k=sha256.k=sha256.k||[],pc=k[L],ic={};for(var c=2;pc<64;c++){if(!ic[c]){for(i=0;i<313;i+=c)ic[i]=c;hash[pc]=(mp(c,.5)*mw)|0;k[pc++]=(mp(c,1/3)*mw)|0}}ascii+='\x80';while(ascii[L]%64-56)ascii+='\x00';for(i=0;i<ascii[L];i++){j=ascii.charCodeAt(i);if(j>>8)return;words[i>>2]|=j<<((3-i)%4)*8}words[words[L]]=((bl/mw)|0);words[words[L]]=(bl);for(j=0;j<words[L];){var w=words.slice(j,j+=16),oh=hash;hash=hash.slice(0,8);for(i=0;i<64;i++){var w15=w[i-15],w2=w[i-2],a=hash[0],e=hash[4],t1=hash[7]+(rr(e,6)^rr(e,11)^rr(e,25))+((e&hash[5])^((~e)&hash[6]))+k[i]+(w[i]=(i<16)?w[i]:(w[i-16]+(rr(w15,7)^rr(w15,18)^(w15>>>3))+w[i-7]+(rr(w2,17)^rr(w2,19)^(w2>>>10)))|0),t2=(rr(a,2)^rr(a,13)^rr(a,22))+((a&hash[1])^(a&hash[2])^(hash[1]&hash[2]));hash=[(t1+t2)|0].concat(hash);hash[4]=(hash[4]+t1)|0}for(i=0;i<8;i++)hash[i]=(hash[i]+oh[i])|0}for(i=0;i<8;i++)for(j=3;j+1;j--){var b=(hash[i]>>(j*8))&255;res+=((b<16)?0:'')+b.toString(16)}return res}
+try{if(sessionStorage.getItem(K)===H)return}catch(e){}
+var st=document.createElement('style');st.id='gs';st.textContent='body>*:not(#gate){display:none!important}#gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;background:#fafaf8;color:#161616;font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif}#gate form{width:100%;max-width:280px;text-align:center}#gate h2{margin:0 0 36px;font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#8b8b86}#gate input{width:100%;height:48px;font-size:18px;padding:0;border:0;border-bottom:1px solid #161616;border-radius:0;text-align:center;background:transparent;color:#161616;outline:0;-webkit-appearance:none}#gate input::placeholder{color:#b0b0aa}#gate button{margin-top:28px;border:0;background:none;color:#161616;font:500 16px -apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;padding:10px 18px;cursor:pointer}#gate .er{color:#a33a30;font-size:13px;min-height:18px;margin-top:14px}@media (prefers-color-scheme:dark){#gate{background:#111;color:#ececea}#gate input{border-color:#ececea;color:#ececea}#gate button{color:#ececea}}';
+document.head.appendChild(st);
+var g=document.createElement('div');g.id='gate';g.innerHTML='<form autocomplete="off"><h2>yesdevis</h2><input type="password" id="gp" placeholder="Mot de passe" autocapitalize="off" autocorrect="off" spellcheck="false"><div class="er" id="ge"></div><button type="submit">Entrer →</button></form>';
+document.body.insertBefore(g,document.body.firstChild);
+g.querySelector('form').onsubmit=function(e){e.preventDefault();var v=document.getElementById('gp').value;
+ if(sha256(S+v)===H){try{sessionStorage.setItem(K,H);sessionStorage.setItem('bf_pw',v)}catch(x){}g.remove();st.remove();window.dispatchEvent(new Event('resize'))}
+ else{document.getElementById('ge').textContent='Mot de passe incorrect';document.getElementById('gp').value='';document.getElementById('gp').focus()}};
+setTimeout(function(){var p=document.getElementById('gp');if(p)p.focus()},50)})();</script><main>
+<div class="top"><a href="index.html" id="mn">← Menu</a><span>Calculatrice</span><span style="width:48px"></span></div>
+<a class="rv" href="index.html">↩ Revenir au devis</a>
+<div class="screen"><div id="ex"></div><div id="re">0</div><div id="tv"></div></div>
+<div class="tva"><b>T.V.A.</b>
+<div class="g t3" id="rates"><button data-r="5.5">5,5 %</button><button data-r="10" class="on">10 %</button><button data-r="20">20 %</button></div>
+<div class="g t2"><button id="toTtc">H.T. → T.T.C.</button><button id="toHt">T.T.C. → H.T.</button></div></div>
+<div class="g pad" id="pad">
+<button class="o" data-k="C">C</button><button class="o" data-k="B">⌫</button><button class="o" data-k="%">%</button><button class="o" data-k="/">÷</button>
+<button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button><button class="o" data-k="*">×</button>
+<button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button><button class="o" data-k="-">−</button>
+<button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button><button class="o" data-k="+">+</button>
+<button data-k="0">0</button><button data-k=".">,</button><button class="o" data-k="N">±</button><button class="eq" data-k="=">=</button></div>
+<div class="g t2" style="margin-top:10px"><button id="cp">Copier le résultat</button><button id="hc">Effacer l'historique</button></div>
+<div class="hist" id="hist"></div>
+<a class="rv" href="index.html" style="margin-top:18px">↩ Revenir au devis</a></main>
+<script>
+var ex='',done=false,rate=10,H=[],$=function(i){return document.getElementById(i)};
+function ev(s){s=s.replace(/[+\-*\/.]+$/,'');if(!s||/[^0-9+\-*\/.() ]/.test(s))return null;try{var v=Function('"use strict";return ('+s+')')();return isFinite(v)?Math.round(v*1e10)/1e10:null}catch(e){return null}}
+function fmt(n){return n.toLocaleString('fr-FR',{maximumFractionDigits:10})}
+function pretty(s){return s.replace(/\*/g,'×').replace(/\//g,'÷').replace(/-/g,'−').replace(/\./g,',').replace(/([+×÷−])/g,' $1 ').trim()}
+function show(){$('ex').textContent=pretty(ex);var v=ev(ex);$('re').textContent=v===null?(ex?'…':'0'):fmt(v);$('tv').textContent=''}
+function key(k){
+ if(/^[0-9]$/.test(k)){if(done){ex='';done=false}ex+=k}
+ else if(k==='.'){if(done){ex='';done=false}var m=ex.match(/[0-9.]*$/)[0];if(m.indexOf('.')<0)ex+=(m===''?'0.':'.')}
+ else if('+-*/'.indexOf(k)>=0){done=false;if(!ex){if(k==='-')ex='-';}else if(/[+\-*\/]$/.test(ex)){ex=ex.slice(0,-1)+k}else ex+=k}
+ else if(k==='C'){ex='';done=false}
+ else if(k==='B'){if(done){ex='';done=false}else ex=ex.slice(0,-1)}
+ else if(k==='N'){var m=ex.match(/^(.*?)(-?[0-9.]+)$/);if(m){var n=m[2];ex=m[1]+(n[0]==='-'?n.slice(1):'-'+n);ex=ex.replace(/\+-/,'-').replace(/--/,'+')}}
+ else if(k==='%'){var m=ex.match(/^(.*?)([+\-])([0-9.]+)$/),mm=ex.match(/^(.*?)([0-9.]+)$/);
+  if(m&&ev(m[1])!==null)ex=m[1]+m[2]+Math.round(ev(m[1])*parseFloat(m[3]))/100;
+  else if(mm)ex=mm[1]+Math.round(parseFloat(mm[2])*1e10/100)/1e10}
+ else if(k==='='){var v=ev(ex);if(v!==null){if(/[+\-*\/]/.test(ex.replace(/^-/,''))){H.unshift([pretty(ex),fmt(v),v]);H=H.slice(0,8);hist()}ex=String(v);done=true}}
+ show()}
+function hist(){$('hist').innerHTML=H.length?'<b>Historique</b>'+H.map(function(h,i){return '<div data-i="'+i+'"><span>'+h[0]+'</span><span><b style="color:inherit;font-size:16px">= '+h[1]+'</b></span></div>'}).join(''):''}
+$('pad').onclick=function(e){var k=e.target.dataset.k;if(k)key(k)};
+$('hist').onclick=function(e){var d=e.target.closest('[data-i]');if(d){ex=String(H[d.dataset.i][2]);done=true;show()}};
+$('hc').onclick=function(){H=[];hist()};
+$('rates').onclick=function(e){var r=e.target.dataset.r;if(!r)return;rate=parseFloat(r);[].forEach.call($('rates').children,function(b){b.classList.toggle('on',b===e.target)})};
+function tva(dir){var v=ev(ex);if(v===null)return;var base=dir?v:v/(1+rate/100),ttc=dir?v*(1+rate/100):v,ht=dir?v:v/(1+rate/100),t=ttc-ht;
+ ex=String(Math.round((dir?ttc:ht)*100)/100);done=true;show();$('tv').textContent='H.T. '+fmt(Math.round(ht*100)/100)+' · T.V.A. '+fmt(Math.round(t*100)/100)+' · T.T.C. '+fmt(Math.round(ttc*100)/100)}
+$('toTtc').onclick=function(){tva(true)};$('toHt').onclick=function(){tva(false)};
+$('cp').onclick=function(){var v=ev(ex),b=this;if(v===null)return;var t=String(v).replace('.',',');
+ try{navigator.clipboard.writeText(t).then(function(){b.textContent='Copié ✓';setTimeout(function(){b.textContent='Copier le résultat'},1500)},function(){b.textContent=t})}catch(e){b.textContent=t}};
+addEventListener('keydown',function(e){var k=e.key;if(e.ctrlKey||e.metaKey)return;
+ if(/^[0-9+\-*\/]$/.test(k))key(k);else if(k==='.'||k===',')key('.');else if(k==='Enter'||k==='=')key('=');else if(k==='Backspace')key('B');else if(k==='Escape')key('C');else if(k==='%')key('%');else return;e.preventDefault()});
+(function(){var l=null,ok=/^(devis|facture)-[a-z\-]+\.html$/;
+ try{l=new URLSearchParams(location.search).get('from')}catch(e){}
+ if(!(l&&ok.test(l))){l=null;try{l=sessionStorage.getItem('bf_last')||localStorage.getItem('bf_last')}catch(e){}}
+ [].forEach.call(document.querySelectorAll('.rv'),function(a){if(l&&ok.test(l)){a.href=l;a.textContent=/^facture/.test(l)?'↩ Revenir à la facture':'↩ Revenir au devis'}else{a.textContent='☰ Choisir un devis'}})})();
+show();
+/* bloque le zoom par pincement (le double-tap est bloqué par touch-action) */
+['gesturestart','gesturechange','gestureend'].forEach(function(g){document.addEventListener(g,function(e){e.preventDefault()})});
+document.addEventListener('dblclick',function(e){e.preventDefault()});
+</script></body></html>

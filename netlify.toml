@@ -1,0 +1,11 @@
+# Configuration Netlify : le site est statique, avec une fonction d'envoi d'e-mail.
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# /api/envoyer (appelé par le site) -> fonction Netlify
+[[redirects]]
+  from = "/api/envoyer"
+  to = "/.netlify/functions/envoyer"
+  status = 200
+  force = true

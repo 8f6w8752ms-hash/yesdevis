@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>yesdevis</title>
+<style>
+:root{--bg:#fafaf8;--fg:#161616;--mut:#8b8b86;--bd:#e4e3de;--key:#f0efeb}
+@media (prefers-color-scheme:dark){:root{--bg:#111;--fg:#ececea;--mut:#8f8f8a;--bd:#2c2c2a;--key:#1c1c1b}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif;padding:max(36px,env(safe-area-inset-top)) 24px 48px}
+main{max-width:440px;margin:0 auto}
+header{margin-bottom:44px}
+h1{font-size:34px;font-weight:300;letter-spacing:-.02em;margin:0}
+header p{margin:6px 0 0;color:var(--mut);font-size:15px}
+section{margin-bottom:34px}
+h2{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:0 0 4px}
+h2 b{width:8px;height:8px;border-radius:50%;display:block}
+.r{display:flex;justify-content:space-between;align-items:center;min-height:60px;border-bottom:1px solid var(--bd);color:var(--fg);text-decoration:none;font-size:20px;font-weight:300}
+.r i{font-style:normal;color:var(--mut);font-size:22px}
+.r:active{opacity:.5}
+#lk{display:inline-block;margin-top:6px;color:var(--mut);font-size:14px;text-decoration:none;padding:10px 0}
+</style></head><body><script>(function(){var H='7bbc641d269a9d10a999220d1dee363d4c2297638d2ad9bce1def756b5989152',S='bf|devis|2026|',K='bf_ok';
+function sha256(ascii){function rr(v,a){return(v>>>a)|(v<<(32-a))}var mp=Math.pow,mw=mp(2,32),L='length',i,j,res='',words=[],bl=ascii[L]*8,hash=sha256.h=sha256.h||[],k=sha256.k=sha256.k||[],pc=k[L],ic={};for(var c=2;pc<64;c++){if(!ic[c]){for(i=0;i<313;i+=c)ic[i]=c;hash[pc]=(mp(c,.5)*mw)|0;k[pc++]=(mp(c,1/3)*mw)|0}}ascii+='\x80';while(ascii[L]%64-56)ascii+='\x00';for(i=0;i<ascii[L];i++){j=ascii.charCodeAt(i);if(j>>8)return;words[i>>2]|=j<<((3-i)%4)*8}words[words[L]]=((bl/mw)|0);words[words[L]]=(bl);for(j=0;j<words[L];){var w=words.slice(j,j+=16),oh=hash;hash=hash.slice(0,8);for(i=0;i<64;i++){var w15=w[i-15],w2=w[i-2],a=hash[0],e=hash[4],t1=hash[7]+(rr(e,6)^rr(e,11)^rr(e,25))+((e&hash[5])^((~e)&hash[6]))+k[i]+(w[i]=(i<16)?w[i]:(w[i-16]+(rr(w15,7)^rr(w15,18)^(w15>>>3))+w[i-7]+(rr(w2,17)^rr(w2,19)^(w2>>>10)))|0),t2=(rr(a,2)^rr(a,13)^rr(a,22))+((a&hash[1])^(a&hash[2])^(hash[1]&hash[2]));hash=[(t1+t2)|0].concat(hash);hash[4]=(hash[4]+t1)|0}for(i=0;i<8;i++)hash[i]=(hash[i]+oh[i])|0}for(i=0;i<8;i++)for(j=3;j+1;j--){var b=(hash[i]>>(j*8))&255;res+=((b<16)?0:'')+b.toString(16)}return res}
+try{if(sessionStorage.getItem(K)===H)return}catch(e){}
+var st=document.createElement('style');st.id='gs';st.textContent='body>*:not(#gate){display:none!important}#gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;background:#fafaf8;color:#161616;font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif}#gate form{width:100%;max-width:280px;text-align:center}#gate h2{margin:0 0 36px;font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#8b8b86}#gate input{width:100%;height:48px;font-size:18px;padding:0;border:0;border-bottom:1px solid #161616;border-radius:0;text-align:center;background:transparent;color:#161616;outline:0;-webkit-appearance:none}#gate input::placeholder{color:#b0b0aa}#gate button{margin-top:28px;border:0;background:none;color:#161616;font:500 16px -apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;padding:10px 18px;cursor:pointer}#gate .er{color:#a33a30;font-size:13px;min-height:18px;margin-top:14px}@media (prefers-color-scheme:dark){#gate{background:#111;color:#ececea}#gate input{border-color:#ececea;color:#ececea}#gate button{color:#ececea}}';
+document.head.appendChild(st);
+var g=document.createElement('div');g.id='gate';g.innerHTML='<form autocomplete="off"><h2>yesdevis</h2><input type="password" id="gp" placeholder="Mot de passe" autocapitalize="off" autocorrect="off" spellcheck="false"><div class="er" id="ge"></div><button type="submit">Entrer →</button></form>';
+document.body.insertBefore(g,document.body.firstChild);
+g.querySelector('form').onsubmit=function(e){e.preventDefault();var v=document.getElementById('gp').value;
+ if(sha256(S+v)===H){try{sessionStorage.setItem(K,H);sessionStorage.setItem('bf_pw',v)}catch(x){}g.remove();st.remove();window.dispatchEvent(new Event('resize'))}
+ else{document.getElementById('ge').textContent='Mot de passe incorrect';document.getElementById('gp').value='';document.getElementById('gp').focus()}};
+setTimeout(function(){var p=document.getElementById('gp');if(p)p.focus()},50)})();</script><main>
+<header><h1>yesdevis</h1><p>Devis et factures · Belloni &amp; Fils</p></header>
+<section><h2><b style="background:#8c857a"></b>Maçonnerie</h2><a class="r" href="devis-maconnerie-montpellier.html"><span>Montpellier</span><i>›</i></a><a class="r" href="devis-maconnerie-balaruc.html"><span>Balaruc-le-Vieux</span><i>›</i></a><a class="r" href="devis-maconnerie-ganges.html"><span>Ganges</span><i>›</i></a></section><section><h2><b style="background:#426926"></b>Espaces verts</h2><a class="r" href="devis-espaces-verts-montpellier.html"><span>Montpellier</span><i>›</i></a><a class="r" href="devis-espaces-verts-balaruc.html"><span>Balaruc-le-Vieux</span><i>›</i></a><a class="r" href="devis-espaces-verts-ganges.html"><span>Ganges</span><i>›</i></a></section><section><h2><b style="background:#c25a33"></b>Couverture</h2><a class="r" href="devis-couverture-montpellier.html"><span>Montpellier</span><i>›</i></a><a class="r" href="devis-couverture-balaruc.html"><span>Balaruc-le-Vieux</span><i>›</i></a><a class="r" href="devis-couverture-ganges.html"><span>Ganges</span><i>›</i></a></section><section><h2><b style="background:var(--mut)"></b>Outils</h2><a class="r" href="calculatrice.html"><span>Calculatrice</span><i>›</i></a></section>
+<section><h2><b style="background:var(--fg)"></b>Facturation</h2><a class="r" href="factures.html"><span>Factures</span><i>›</i></a></section>
+<a href="#" id="lk">Verrouiller</a>
+</main>
+<script>document.getElementById("lk").onclick=function(e){e.preventDefault();try{sessionStorage.removeItem("bf_ok")}catch(x){}location.reload()}</script>
+</body></html>
